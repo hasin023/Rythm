@@ -7,7 +7,7 @@ class Constants {
     public static $passwordCharacters = "Password must be between 5 and 30 characters";
     public static $emailInvalid = "Email is Invalid";
     public static $emailTaken = "This email is already in use.";
-    public static $nameCharacters = "Name must be between 2 and 25 characters";
+    public static $nameCharacters = "Name must be between 2 and 30 characters";
     public static $usernameCharacters = "Username must be between 5 and 25 characters";
     public static $usernameTaken = "This username already exists.";
 
