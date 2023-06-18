@@ -1,0 +1,118 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+#nowPlayingBarContainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-width: 40rem;
+  background-color: #1e1e1e;
+  z-index: 1000;
+  border-top: 1px solid #191919;
+}
+
+#nowPlayingBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight {
+  width: 30%;
+  min-width: 11rem;
+}
+
+#nowPlayingCenter {
+  width: 40%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nowPlayingCenter .content {
+  width: 100%;
+}
+
+.playerControls .buttons {
+  margin: 0 auto;
+  display: table;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.btn .play {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.btn .pause {
+  font-size: 2.35rem;
+  color: #fff;
+}
+
+ion-icon {
+  font-size: 1.3rem;
+  color: #cfcfcf;
+}
+
+ion-icon:hover,
+ion-icon:active {
+  color: #ffffff;
+}
+
+.playBackBar {
+  display: flex;
+}
+
+.progressTime {
+  color: #fff;
+  font-size: 0.75rem;
+  min-width: 2.4rem;
+  text-align: center;
+}
+
+.progressBar {
+  width: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  height: 0.3rem;
+}
+
+.progressBarBg {
+  border-radius: 20px;
+  background-color: #535353;
+  width: 100%;
+  height: 0.3rem;
+}
+
+.progress {
+  background-color: #d3d3d3;
+  border-radius: 20px;
+  height: 0.3rem;
+  width: 0%;
+}
+
+.playBackBar .progressBar {
+  margin-top: 0.25rem;
+}
