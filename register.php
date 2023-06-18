@@ -23,6 +23,10 @@ function getInput($name){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Rythm is a free music streaming service that allows the user to listen to their favourite tunes for free."
+    />
     <link rel = "icon shortcut" href = "img/music.ico">
     <title>Register</title>
     <link rel = "stylesheet" type = "text/css" href = "css/register.css">
@@ -36,12 +40,24 @@ function getInput($name){
 </head>
 <body>
 
-    <script>
-        $(document).ready(function () {
-            $("#loginForm").show();
-            $("#registrationForm").hide();
-        });
-    </script>
+<?php 
+
+    if(isset($_POST['registerButton'])){
+        echo '<script>
+                $(document).ready(function () {
+                    $("#loginForm").hide();
+                    $("#registrationForm").show();
+                });
+            </script>';
+    } else {
+        echo '<script>
+                $(document).ready(function () {
+                    $("#loginForm").show();
+                    $("#registrationForm").hide();
+                });
+            </script>';
+    }
+?>
 
     <div class= "backgroundImg">
         <div class = "loginContainer">
@@ -53,7 +69,7 @@ function getInput($name){
                             <?php echo $account->getError(Constants::$loginFailed); ?>
                             <div class = "wrapper">
                                 <div class = "input-data">
-                                    <input id = "loginUsername" name = "loginUsername" type = "text" required>
+                                    <input id = "loginUsername" name = "loginUsername" type = "text" value = "<?php getInput('loginUsername') ?>" required>
                                     <div class = "underline"></div>
                                     <label for = "loginUsername">Username</label>
                                 </div>
@@ -158,6 +174,16 @@ function getInput($name){
         
             </div>
         </div>
+
+        <div id = "loginText">
+                    <h1>Get great Music, Anywhere</h1>
+                    <h2>Listen to your favourite tunes for Free</h2>
+                    <ul>
+                        <li>Music you'll fall in love with</li>
+                        <li>Customize your own playlists</li>
+                        <li>Stay up to date with the newest</li>
+                    </ul>
+                </div>
     </div>
 </body>
 </html>

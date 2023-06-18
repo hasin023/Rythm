@@ -19,15 +19,6 @@ body {
   width: 100%;
 }
 
-.highlight {
-  background-color: rgb(235, 222, 108);
-  transform: skewX(-12deg);
-  color: #333;
-  font-weight: 500;
-  display: inline-block;
-  padding: 0.5rem 0.5rem;
-}
-
 .loginContainer * {
   font-family: "Poppins", sans-serif;
   color: #fff;
@@ -41,6 +32,15 @@ body {
   width: 80%;
   position: relative;
   max-width: 64rem;
+}
+
+.highlight {
+  background-color: #ebde6c;
+  transform: skewX(-12deg);
+  color: #323232;
+  font-weight: 500;
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
 }
 
 .inputContainer {
@@ -99,6 +99,10 @@ body {
   width: 25rem;
   padding: 2rem;
   float: right;
+}
+
+#registrationForm {
+  display: none;
 }
 
 .inputLabel {
@@ -228,4 +232,50 @@ body {
 #hideRegister {
   cursor: pointer;
   margin-top: 0.7rem;
+}
+
+#loginText {
+  position: absolute;
+  margin-top: 9rem;
+  margin-left: 3rem;
+  top: 50%;
+  left: 50%;
+  width: 40rem;
+  padding: 2rem;
+  float: left;
+}
+
+#loginText h1 {
+  color: #ebde6c;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.2;
+}
+#loginText h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.2;
+}
+
+#loginText ul {
+  list-style: none;
+  margin-left: -1.5rem;
+  margin-top: 1rem;
+}
+
+#loginText li {
+  padding-top: 0.4rem;
+}
+
+.errorMessage {
+  display: block;
+  color: rgb(221, 19, 19);
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1rem;
 }
