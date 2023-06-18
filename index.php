@@ -26,6 +26,12 @@ if(isset($_SESSION['userLoggedIn'])) {
     />
     <link rel = "icon shortcut" href = "img/music.ico">
     <link rel="stylesheet" type="text/css" href = "css/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+
+
     <title>Rythm | Music you love</title>
 </head>
 <body>
