@@ -54,7 +54,7 @@ body {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   line-height: 1.2;
   text-align: center;
 }
@@ -85,6 +85,14 @@ body {
 ::placeholder {
   /* Most modern browsers support this now. */
   color: #d8d6d6;
+}
+
+.loginFormClass {
+  margin-top: 3rem;
+}
+
+.registerForm {
+  margin-top: -2.7rem;
 }
 
 #loginForm {
@@ -186,15 +194,38 @@ body {
 }
 
 #loginButton {
-  margin-left: 1rem;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+  width: 21rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+#regButton {
+  margin-top: 0;
+  width: 12rem;
 }
 
 .submitButton:hover,
 .submitButton:active {
-  background-color: #fff;
+  background-color: #f1f1f1;
   color: #333;
 }
 
-.hidden {
-  display: none;
+.hasAccountText {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+#hideLogin {
+  margin-left: -2.7rem;
+  cursor: pointer;
+}
+
+#hideRegister {
+  cursor: pointer;
+  margin-top: 0.7rem;
 }

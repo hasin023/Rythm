@@ -26,6 +26,8 @@ function getInput($name){
     <link rel = "icon shortcut" href = "img/music.ico">
     <title>Register</title>
     <link rel = "stylesheet" type = "text/css" href = "css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src = "js/register.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,10 +35,18 @@ function getInput($name){
 
 </head>
 <body>
+
+    <script>
+        $(document).ready(function () {
+            $("#loginForm").show();
+            $("#registrationForm").hide();
+        });
+    </script>
+
     <div class= "backgroundImg">
         <div class = "loginContainer">
             <div class = "inputContainer">
-                <div class = "loginForm hidden">
+                <div class = "loginFormClass">
                     <form id = "loginForm" action = "register.php" method = "POST">
                         <h3>Log into your <span class = "highlight">Rythm</span> account</h3>
                         <p>
@@ -57,11 +67,14 @@ function getInput($name){
                                     <label for = "loginPassword">Password</label>
                                 </div>
                             </div>   
-                    </p>
-                    <button class = "submitButton" id = "loginButton" type = "submit" name = "loginButton">LOG IN</button>
-                </form>
-            </div>
-                
+                        </p>
+                        <button class = "submitButton" id = "loginButton" type = "submit" name = "loginButton">LOG IN</button>
+
+                        <div class = "hasAccountText">
+                            <span id = "hideLogin">Don't have an account yet? Sign up here.</span>
+                        </div>
+                    </form>
+                </div>
                 
                 <div class = "registerForm ">
                     <form id = "registrationForm" action = "register.php" method = "POST">
@@ -135,7 +148,11 @@ function getInput($name){
                             </div> 
                         </p>
                         
-                        <button class = "submitButton" type = "submit" name = "registerButton">SIGN UP</button>
+                        <button id = "regButton" class = "submitButton" type = "submit" name = "registerButton">SIGN UP</button>
+
+                        <div class = "hasAccountText">
+                            <span id = "hideRegister">Already have an account? Log in here.</span>
+                        </div>
                     </form>
                 </div>
         
