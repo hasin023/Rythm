@@ -36,59 +36,108 @@ function getInput($name){
     <div class= "backgroundImg">
         <div class = "loginContainer">
             <div class = "inputContainer">
-                <form id = "loginForm" action = "register.php" method = "POST">
-                    <h3>Log into your <span class = "highlight">Rythm</span> account</h3>
-                    <p>
-                        <?php echo $account->getError(Constants::$loginFailed); ?>
-                        <label class = "inputLabel" for = "loginUsername">Username</label>
-                        <input class = "textBox" id = "loginUsername" name = "loginUsername" type = "text" placeholder = "Username" required>
+                <div class = "loginForm hidden">
+                    <form id = "loginForm" action = "register.php" method = "POST">
+                        <h3>Log into your <span class = "highlight">Rythm</span> account</h3>
+                        <p>
+                            <?php echo $account->getError(Constants::$loginFailed); ?>
+                            <div class = "wrapper">
+                                <div class = "input-data">
+                                    <input id = "loginUsername" name = "loginUsername" type = "text" required>
+                                    <div class = "underline"></div>
+                                    <label for = "loginUsername">Username</label>
+                                </div>
+                            </div>
+                        </p>
+                        <p>
+                            <div class = "wrapper">
+                                <div class = "input-data">
+                                    <input id = "loginPassword" name = "loginPassword" type = "password" required>
+                                    <div class = "underline"></div>
+                                    <label for = "loginPassword">Password</label>
+                                </div>
+                            </div>   
                     </p>
-                    <p>
-                        <label class = "inputLabel" for = "loginPassword">Password</label>
-                        <input class = "textBox" id = "loginPassword" name = "loginPassword" type = "password" placeholder = "Password" required>
-                    </p>
-                    <button class = "submitButton" type = "submit" name = "loginButton">LOG IN</button>
+                    <button class = "submitButton" id = "loginButton" type = "submit" name = "loginButton">LOG IN</button>
                 </form>
+            </div>
                 
                 
-                
-                <form id = "registrationForm" action = "register.php" method = "POST">
-                    <h3>Create your free account today!!</h3>
+                <div class = "registerForm ">
+                    <form id = "registrationForm" action = "register.php" method = "POST">
+                        <h3>Create your free account today!!</h3>
                     <p>
                         <?php echo $account->getError(Constants::$usernameCharacters); ?>
                         <?php echo $account->getError(Constants::$usernameTaken); ?>
-                        <label class = "inputLabel" for = "username">Username</label>
-                        <input class = "textBox" id = "username" name = "username" type = "text" placeholder = "Username" value = "<?php getInput('username') ?>" required>
+                        
+                        <div class = "wrapper">
+                            <div class = "input-data">
+                                <input id = "username" name = "username" type = "text" value = "<?php getInput('username') ?>" required>
+                                <div class = "underline"></div>
+                                <label for = "username">Username</label>
+                            </div>
+                        </div>
                     </p>
                     <p>
                         <?php echo $account->getError(Constants::$nameCharacters); ?>
-                        <label class = "inputLabel" for = "firstName">First Name</label>
-                        <input class = "textBox" id = "firstName" name = "firstName" type = "text" placeholder = "First Name" value = "<?php getInput('firstName') ?>" required>
+                        
+                        <div class = "wrapper">
+                            <div class = "input-data">
+                                <input id = "firstName" name = "firstName" type = "text" value = "<?php getInput('firstName') ?>" required>
+                                <div class = "underline"></div>
+                                <label for = "firstName">First Name</label>
+                            </div>
+                        </div>  
                     </p>
                     <p>
                         <?php echo $account->getError(Constants::$nameCharacters); ?>
-                        <label class = "inputLabel" for = "lastName">Last Name</label>
-                        <input class = "textBox" id = "lastName" name = "lastName" type = "text" placeholder = "Last Name" value = "<?php getInput('lastName') ?>" required>
+                        
+                        <div class = "wrapper">
+                            <div class = "input-data">
+                            <input id = "lastName" name = "lastName" type = "text" value = "<?php getInput('lastName') ?>" required>
+                                <div class = "underline"></div>
+                                <label for = "lastName">Last Name</label>
+                            </div>
+                        </div>
                     </p>
                     <p>
                         <?php echo $account->getError(Constants::$emailInvalid); ?>
                         <?php echo $account->getError(Constants::$emailTaken); ?>
-                        <label class = "inputLabel" for = "email">Email</label>
-                        <input class = "textBox" id = "email" name = "email" type = "email" placeholder = "Email" value = "<?php getInput('email') ?>" required>
+                        
+                        <div class = "wrapper">
+                            <div class = "input-data">
+                                <input id = "email" name = "email" type = "email" value = "<?php getInput('email') ?>" required>
+                                <div class = "underline"></div>
+                                <label for = "email">Email</label>
+                            </div>
+                        </div>                
                     </p>
                     <p>
                         <?php echo $account->getError(Constants::$passwordCharacters); ?>
                         <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
-                        <label class = "inputLabel" for = "password">Password</label>
-                        <input class = "textBox" id = "password" name = "password" type = "password" placeholder = "Password" required>
-                    </p>
+                        
+                        <div class = "wrapper">
+                            <div class = "input-data">
+                                <input id = "password" name = "password" type = "password" required>
+                                <div class = "underline"></div>
+                                <label for = "password">Password</label>
+                            </div>
+                        </div>           
+                    </p>  
                     <p>
                         <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
-                        <label class = "inputLabel" for = "confirmPassword">Re-enter Password</label>
-                        <input class = "textBox" id = "confirmPassword" name = "confirmPassword" type = "password" placeholder = "Confirm password" required>
-                    </p>
-                    <button class = "submitButton" type = "submit" name = "registerButton">SIGN UP</button>
-                </form>
+                        
+                        <div class = "wrapper">
+                            <div class = "input-data">
+                                <input id = "confirmPassword" name = "confirmPassword" type = "password" required>
+                                <div class = "underline"></div>
+                                <label for = "confirmPassword">Re-enter Password</label>
+                            </div> 
+                        </p>
+                        
+                        <button class = "submitButton" type = "submit" name = "registerButton">SIGN UP</button>
+                    </form>
+                </div>
         
             </div>
         </div>

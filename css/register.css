@@ -9,7 +9,7 @@ body {
 }
 
 .backgroundImg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
     url(../img/heroBG.jpg);
   background-size: cover;
   background-position: center;
@@ -17,6 +17,15 @@ body {
   display: table;
   height: 100vh;
   width: 100%;
+}
+
+.highlight {
+  background-color: rgb(235, 222, 108);
+  transform: skewX(-12deg);
+  color: #333;
+  font-weight: 500;
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
 }
 
 .loginContainer * {
@@ -44,18 +53,38 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 3rem;
   line-height: 1.2;
   text-align: center;
 }
 
-.highlight {
-  background-color: rgb(235, 222, 108);
-  transform: skewX(-12deg);
-  color: #333;
-  font-weight: 500;
-  display: inline-block;
-  padding: 0.5rem 0.5rem;
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #d8d6d6;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #d8d6d6;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #d8d6d6;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #d8d6d6;
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #d8d6d6;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #d8d6d6;
 }
 
 #loginForm {
@@ -74,26 +103,80 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.textBox {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  width: 100%;
-  display: block;
-  margin-bottom: 1rem;
-  transition: all 0.2s;
+.wrapper {
+  width: 29rem;
+  background: transparent;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.textBox:focus {
-  border-bottom: 1px solid #fff;
+.wrapper .input-data {
+  height: 2.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.wrapper .input-data input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  border-bottom: 1px solid #909090;
+  background: transparent;
+  color: #fff;
+}
+
+.wrapper .input-data input:focus ~ label,
+.wrapper .input-data input:valid ~ label {
+  transform: translateY(-1.5rem);
+  font-size: 0.8rem;
+  color: #b1b1b1;
+}
+
+.wrapper .input-data label {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.4rem;
+  pointer-events: none;
+  font-size: 1rem;
+  color: #b1b1b1;
+  transition: all 0.3s ease;
+}
+.wrapper .input-data .underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.wrapper .input-data input:focus ~ .underline,
+.wrapper .input-data input:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+.input-data .underline:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  transform: scale(0);
 }
 
 .submitButton {
   background-color: transparent;
+  margin-top: 2rem;
   border: 1px solid #fff;
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
+  width: 12rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -102,8 +185,16 @@ body {
   transition: all 0.3s;
 }
 
+#loginButton {
+  margin-left: 1rem;
+}
+
 .submitButton:hover,
 .submitButton:active {
   background-color: #fff;
   color: #333;
+}
+
+.hidden {
+  display: none;
 }
