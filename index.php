@@ -35,7 +35,52 @@ if(isset($_SESSION['userLoggedIn'])) {
     <title>Rythm | Music you love</title>
 </head>
 <body>
-    
+
+<div id = "mainContainer">
+
+    <div id = "topContainer">
+
+        <div id = "navBarContainer">
+            <nav class = "navBar">
+                <a href = "index.php" class = "logo">
+                    <img class = "logoImg" src = "img/logo.png">
+                </a>
+
+                <div class = "group">
+                    <div class = "navItem">
+                        <a href = "search.php" class = "navItemLink">
+                        <ion-icon class = "navIcon" name="search-outline"></ion-icon>       
+                        Search</a>
+                    </div>
+
+                </div>
+
+                <div class = "group">
+                    <div class = "navItem">
+                        <a href = "browse.php" class = "navItemLink">
+                        <ion-icon class = "navIcon" name="home-outline"></ion-icon>    
+                        Browse</a>
+                    </div>
+
+                    <div class = "navItem">
+                        <a href = "yourMusic.php" class = "navItemLink">
+                        <ion-icon class = "navIcon" name="musical-notes-outline"></ion-icon>    
+                        Your Music</a>
+                    </div>
+
+                    <div class = "navItem">
+                        <a href = "profile.php" class = "navItemLink">
+                        <ion-icon class = "navIcon" name="person-outline"></ion-icon>    
+                        Profile</a>
+                    </div>
+
+                </div>
+
+            </nav>
+        </div>
+
+
+    </div>
 
     <div id = "nowPlayingBarContainer">
 
@@ -44,7 +89,7 @@ if(isset($_SESSION['userLoggedIn'])) {
             <div id = "nowPlayingLeft">
                 <div class = "content">
                     <span class = "albumLink">
-                        <img class = "albumArtwork" src = "img/spiderverseCover.jpg">
+                        <img class = "albumArtwork" src = "img/monaLisaCover.jpg">
                     </span>
 
                     <div class = "trackInfo">
@@ -135,6 +180,11 @@ if(isset($_SESSION['userLoggedIn'])) {
         </div>
 
     </div>
+
+</div>
+    
+
+    
 
 
 

@@ -1,6 +1,20 @@
 /* font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif; */
 
+:root {
+  --base-button-color: #c1c1c1;
+  --hover-button-color: #fff;
+  --searchButton-border: #dfdfdf;
+  --progress-time-color: #d9d9d9;
+  --artist-name-color: #b3b3b3;
+
+  --nowPlaying-bar-bg: #000;
+  --nowPlaying-BorderTop: #191919;
+  --container-bg: #000;
+  --navBar-container: #1d1d1d;
+  --progressbar-bg: #535353;
+}
+
 * {
   font-family: "Poppins", sans-serif;
   color: #fff;
@@ -18,9 +32,9 @@ body {
   bottom: 0;
   width: 100%;
   min-width: 40rem;
-  background-color: #181818;
+  background-color: var(--nowPlaying-bar-bg);
   z-index: 1000;
-  border-top: 1px solid #191919;
+  border-top: 1px solid var(--nowPlaying-BorderTop);
 }
 
 #nowPlayingBar {
@@ -75,22 +89,22 @@ body {
 
 .btn .play {
   font-size: 2.5rem;
-  color: #fff;
+  color: var(--hover-button-color);
 }
 
 .btn .pause {
   font-size: 2.65rem;
-  color: #fff;
+  color: var(--hover-button-color);
 }
 
 ion-icon {
   font-size: 1.3rem;
-  color: #cfcfcf;
+  color: var(--base-button-color);
 }
 
 ion-icon:hover,
 ion-icon:active {
-  color: #ffffff;
+  color: var(--hover-button-color);
 }
 
 .playBackBar {
@@ -98,7 +112,7 @@ ion-icon:active {
 }
 
 .progressTime {
-  color: #fff;
+  color: var(--hover-button-color);
   font-size: 0.7rem;
   min-width: 2.4rem;
   text-align: center;
@@ -113,13 +127,13 @@ ion-icon:active {
 
 .progressBarBg {
   border-radius: 20px;
-  background-color: #535353;
+  background-color: var(--progressbar-bg);
   width: 100%;
   height: 0.3rem;
 }
 
 .progress {
-  background-color: #d3d3d3;
+  background-color: var(--progress-time-color);
   border-radius: 20px;
   height: 0.3rem;
   width: 0%;
@@ -131,8 +145,9 @@ ion-icon:active {
 
 #nowPlayingLeft .albumArtwork {
   height: 100%;
-  max-width: 3.7rem;
+  max-width: 3.5rem;
   margin-right: 1rem;
+  margin-bottom: 0.9rem;
   float: left;
   border-radius: 5px;
   background-size: cover;
@@ -143,6 +158,8 @@ ion-icon:active {
 }
 
 #nowPlayingLeft .trackInfo .trackName {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
   margin-top: 0.3rem;
   display: inline-block;
   width: 100%;
@@ -150,7 +167,7 @@ ion-icon:active {
 
 #nowPlayingLeft .trackInfo .artistName span {
   font-size: 0.75rem;
-  color: #b3b3b3;
+  color: var(--artist-name-color);
 }
 
 .volumeBar {
@@ -162,4 +179,72 @@ ion-icon:active {
 .volumeBar .progressBar {
   width: 7.8rem;
   margin-bottom: 0.3rem;
+}
+
+#topContainer {
+  min-width: 100%;
+  width: 100%;
+}
+
+#topContainer {
+  background-color: var(--container-bg);
+  width: 100%;
+  height: 100vh;
+}
+
+#navBarContainer {
+  background-color: var(--navBar-container);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 20rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.navBar {
+  padding: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+.logoImg {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  height: 5rem;
+}
+
+.navBar .group {
+  border-top: 1px solid var(--searchButton-border);
+  padding: 0.675rem 0;
+}
+
+.navBar .group .navItem {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.675rem 0;
+  display: block;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.navItemLink {
+  color: var(--base-button-color);
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+
+.navItemLink:hover,
+.navItemLink:active {
+  color: var(--hover-button-color);
+}
+
+.navIcon {
+  position: absolute;
+  left: 0;
+  color: var(--hover-button-color);
 }
