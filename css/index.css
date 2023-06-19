@@ -10,8 +10,10 @@ font-family: 'Poppins', sans-serif; */
 
   --nowPlaying-bar-bg: #000;
   --nowPlaying-BorderTop: #191919;
-  --container-bg: #000;
+  --body-bg: #000;
   --navBar-container: #1d1d1d;
+  --card-bg: #1d1d1d;
+  --card-hover: #303030;
   --progressbar-bg: #535353;
 }
 
@@ -25,6 +27,12 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+}
+
+body {
+  font-size: 0.875rem;
+  min-width: 45rem;
+  background-color: var(--body-bg);
 }
 
 #nowPlayingBarContainer {
@@ -186,11 +194,10 @@ ion-icon:active {
   width: 100%;
 }
 
-#topContainer {
+/* #topContainer {
   background-color: var(--container-bg);
-  width: 100%;
   height: 100vh;
-}
+} */
 
 #navBarContainer {
   background-color: var(--navBar-container);
@@ -247,4 +254,62 @@ ion-icon:active {
   position: absolute;
   left: 0;
   color: var(--hover-button-color);
+}
+
+#mainViewContainer {
+  margin-left: 20rem;
+  padding-bottom: 5.625rem;
+  width: calc(100% - 20rem);
+}
+
+#mainContent {
+  padding: 0 1.2rem;
+}
+
+.pageHeadingBig {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 11rem;
+  height: 17rem;
+  margin: 0.6rem;
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card:hover,
+.card:active {
+  background-color: var(--card-hover);
+}
+
+.cardLink {
+  text-decoration: none;
+}
+
+.gridViewItem {
+  max-width: 16rem;
+  min-width: 9rem;
+}
+
+.gridViewItem img {
+  height: 11rem;
+  width: 11rem;
+  margin-bottom: 2rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gridViewInfo {
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 500;
 }

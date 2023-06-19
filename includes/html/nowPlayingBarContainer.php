@@ -5,7 +5,7 @@
         <div id = "nowPlayingLeft">
             <div class = "content">
                 <span class = "albumLink">
-                    <img class = "albumArtwork" src = "img/monaLisaCover.jpg">
+                    <img class = "albumArtwork" src = "img/artworks/monaLisaCover.jpg">
                 </span>
 
                 <div class = "trackInfo">
