@@ -30,11 +30,4 @@
 
 
 
-
-
-
-
-
-
-
 <?php include("includes/html/footer.php"); ?>
