@@ -1,3 +1,22 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+:root {
+  --base-button-color: #c1c1c1;
+  --hover-button-color: #fff;
+  --searchButton-border: #dfdfdf;
+  --progress-time-color: #d9d9d9;
+  --artist-name-color: #b3b3b3;
+
+  --nowPlaying-bar-bg: #000;
+  --nowPlaying-BorderTop: #191919;
+  --body-bg: #000;
+  --navBar-container: #1d1d1d;
+  --card-bg: #1d1d1d;
+  --card-hover: #303030;
+  --progressbar-bg: #535353;
+}
+
 .entityInfo {
   padding-top: 0.2rem;
   display: inline-block;
@@ -37,6 +56,7 @@
   padding: 1rem 0.675rem;
   height: 2.5rem;
   list-style: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .trackListRow:hover {

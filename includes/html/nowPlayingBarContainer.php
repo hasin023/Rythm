@@ -1,3 +1,62 @@
+<?php
+    $songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+
+    $resultArray = array();
+
+    while($row = mysqli_fetch_array($songQuery)) {
+        array_push($resultArray, $row['id']);
+    }
+
+    $jsonArray = json_encode($resultArray);
+
+?>
+
+<script>
+
+currentPlaylist = <?php echo $jsonArray; ?>
+
+$(document).ready(function() {
+    audioElement = new Audio();
+    setTrack(currentPlaylist[0], currentPlaylist, false);
+});
+
+function setTrack(trackId, newPlaylist, play) {
+
+    // $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+
+    //     var track = JSON.parse(data);
+
+    //     audioElement.setTrack(track.path);
+    //     audioElement.play();
+
+    // });
+
+    audioElement.setTrack("music/Metro-Boomin/Calling.mp3");
+
+    if(play) {
+        audioElement.play();
+    }
+}   
+
+    function playSong() {
+        $(".btn.play").hide();
+        $(".btn.pause").show();
+        audioElement.play();
+    }
+
+    function pauseSong() {
+        $(".btn.play").show();
+        $(".btn.pause").hide();
+        audioElement.pause();
+    }
+
+
+</script>
+
+
+
+
+
 <div id = "nowPlayingBarContainer">
 
     <div id = "nowPlayingBar">
@@ -32,11 +91,11 @@
                     <ion-icon name="play-skip-back-sharp"></ion-icon>
                     </button>
 
-                    <button class = "btn play" title = "Play button">
+                    <button class = "btn play" title = "Play button" onclick = "playSong()">
                     <ion-icon class = "play" name="play-circle-sharp"></ion-icon>
                     </button>
 
-                    <button class = "btn pause" title = "Pause button" style = "display: none">
+                    <button class = "btn pause" title = "Pause button" style = "display: none" onclick = "pauseSong()">
                     <ion-icon class = "pause" name="pause-circle"></ion-icon>
                     </button>
 

@@ -25,13 +25,16 @@
       content="Rythm is a free music streaming service that allows the user to listen to their favourite tunes for free."
     />
     <link rel = "icon shortcut" href = "img/music.ico">
-    <link rel="stylesheet" type="text/css" href = "css/index.css">
-    <link rel="stylesheet" type="text/css" href = "css/album.css">
+    <link rel="stylesheet" href = "css/index.css">
+    <link rel="stylesheet" href = "css/nowPlaying.css">
+    <link rel="stylesheet" href = "css/album.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src = "js/script.js"></script>
 
     <title>Rythm | Music you love</title>
 </head>

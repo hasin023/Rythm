@@ -1,0 +1,182 @@
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+:root {
+  --base-button-color: #c1c1c1;
+  --hover-button-color: #fff;
+  --searchButton-border: #dfdfdf;
+  --progress-time-color: #d9d9d9;
+  --artist-name-color: #b3b3b3;
+
+  --nowPlaying-bar-bg: #000;
+  --nowPlaying-BorderTop: #191919;
+  --body-bg: #000;
+  --navBar-container: #1d1d1d;
+  --card-bg: #1d1d1d;
+  --card-hover: #303030;
+  --progressbar-bg: #535353;
+}
+
+#nowPlayingBarContainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-width: 40rem;
+  background-color: var(--nowPlaying-bar-bg);
+  z-index: 1000;
+  border-top: 1px solid var(--nowPlaying-BorderTop);
+}
+
+#nowPlayingBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.3rem;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#nowPlayingLeft {
+  width: 30%;
+  min-width: 11rem;
+  position: relative;
+  margin-top: 1rem;
+}
+
+#nowPlayingRight {
+  margin-left: auto;
+  min-width: 11rem;
+  position: relative;
+  margin-top: 1rem;
+}
+
+#nowPlayingCenter {
+  width: 40%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#nowPlayingCenter .content {
+  width: 100%;
+  height: 3.5rem;
+}
+
+.playerControls .buttons {
+  margin: 0 auto;
+  display: table;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.btn .play {
+  font-size: 2.5rem;
+  color: var(--hover-button-color);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .play {
+  transform: scale(1.1);
+}
+
+.btn .pause {
+  font-size: 2.5rem;
+  color: var(--hover-button-color);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .pause {
+  transform: scale(1.1);
+}
+
+ion-icon {
+  font-size: 1.3rem;
+  color: var(--base-button-color);
+}
+
+ion-icon:hover,
+ion-icon:active {
+  color: var(--hover-button-color);
+}
+
+.playBackBar {
+  display: flex;
+}
+
+.progressTime {
+  color: var(--hover-button-color);
+  font-size: 0.7rem;
+  min-width: 2.4rem;
+  text-align: center;
+}
+
+.progressBar {
+  width: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  height: 0.3rem;
+}
+
+.progressBarBg {
+  border-radius: 20px;
+  background-color: var(--progressbar-bg);
+  width: 100%;
+  height: 0.3rem;
+}
+
+.progress {
+  background-color: var(--progress-time-color);
+  border-radius: 20px;
+  height: 0.3rem;
+  width: 0%;
+}
+
+.playBackBar .progressBar {
+  margin-top: 0.3rem;
+}
+
+#nowPlayingLeft .albumArtwork {
+  height: 100%;
+  max-width: 3.5rem;
+  margin-right: 1rem;
+  margin-bottom: 0.9rem;
+  float: left;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+#nowPlayingLeft .trackInfo {
+  display: table;
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  display: inline-block;
+  width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+  font-size: 0.75rem;
+  color: var(--artist-name-color);
+}
+
+.volumeBar {
+  display: flex;
+  align-items: center;
+  width: 11.25rem;
+}
+
+.volumeBar .progressBar {
+  width: 7.8rem;
+  margin-bottom: 0.3rem;
+}
