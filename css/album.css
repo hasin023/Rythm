@@ -1,0 +1,115 @@
+.entityInfo {
+  padding-top: 0.2rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.entityInfo .leftSection {
+  float: left;
+  width: 30%;
+}
+
+.entityInfo .leftSection .albumImg {
+  width: 20rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+.rightSection {
+  float: right;
+  width: 70%;
+  margin-top: 1rem;
+}
+
+.rightSection h2 {
+  font-size: 1.5rem;
+}
+
+.rightSection p {
+  color: #dfdfdf;
+}
+
+.trackList {
+  padding: 0;
+}
+
+.trackListRow {
+  padding: 1rem 0.675rem;
+  height: 2.5rem;
+  list-style: none;
+}
+
+.trackListRow:hover {
+  background-color: #282828;
+  border-radius: 4px;
+}
+
+.trackListRow span {
+  color: #f9f9f9;
+  font-weight: 300;
+}
+
+.trackListRow .trackCount {
+  width: 8%;
+  float: left;
+}
+
+.trackListRow .trackCount .play {
+  position: absolute;
+  cursor: pointer;
+  left: 22.8%;
+  visibility: hidden;
+}
+
+.trackListRow .trackCount span {
+  visibility: visible;
+}
+
+.trackListRow:hover .trackCount .play {
+  visibility: visible;
+}
+
+.trackListRow:hover .trackCount span {
+  visibility: hidden;
+}
+.trackListRow .trackInfo {
+  width: 75%;
+  float: left;
+}
+
+.trackListRow .trackInfo .trackName {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.trackListRow .trackInfo .artistName {
+  font-size: 0.8rem;
+  color: #dfdfdf;
+}
+
+.trackListRow .trackInfo span {
+  display: block;
+}
+
+.trackListRow .trackOptions {
+  width: 5%;
+  float: left;
+  text-align: right;
+}
+
+.trackListRow .trackOptions .optionsButton {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.trackListRow:hover .trackOptions .optionsButton {
+  visibility: visible;
+}
+
+.trackListRow .trackDuration {
+  width: 12%;
+  float: left;
+  text-align: right;
+}

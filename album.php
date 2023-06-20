@@ -15,14 +15,14 @@
 
 <div class = "entityInfo">
 
-    <div class = "leftSection" style = "float: left; width: 30%; ">
-        <img class = "albumImg" src = "<?php echo $album->getArtworkPath(); ?>" style = "width: 20rem; margin-top: 1rem;">
+    <div class = "leftSection">
+        <img class = "albumImg" src = "<?php echo $album->getArtworkPath(); ?>">
     </div>
 
-    <div class = "rightSection" style = "float: right; width: 70%; margin-top: 1rem;">
-        <h2 style = "font-size: 1.5rem"><?php echo $album->getTitle(); ?></h2>
-        <p style = "color: #dfdfdf">By <?php echo $artist->getName(); ?></p>
-        <p style = "color: #dfdfdf"><?php echo $album->getNumberOfSongs(); ?> songs</p>
+    <div class = "rightSection">
+        <h2><?php echo $album->getTitle(); ?></h2>
+        <p>By <?php echo $artist->getName(); ?></p>
+        <p><?php echo $album->getNumberOfSongs(); ?> songs</p>
 
     </div>
 
@@ -54,14 +54,13 @@
                         <span class = 'artistName'>" . $albumArtist->getName() .  "</span>
                     </div>
 
-                    <div class = 'trackOptions'>
-                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal'></ion-icon>
-                    </div>
-
                     <div class = 'trackDuration'>
                     <span class = 'duration'>" . $albumSong->getDuration() .  "</span>
                     </div>
 
+                    <div class = 'trackOptions'>
+                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal'></ion-icon>
+                    </div>
 
                 </li>";
 
