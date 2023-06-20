@@ -313,3 +313,25 @@ ion-icon:active {
   font-size: 1rem;
   font-weight: 500;
 }
+
+.entityInfo {
+  padding: 2.5rem 0 0.8rem 0;
+  display: inline-block;
+  width: 100%;
+}
+
+/* .entityInfo .leftSection {
+  float: left;
+  width: 30%;
+}
+
+.entityInfo .leftSection .albumImg {
+  width: 20rem;
+  margin-top: 1rem;
+} */
+
+/* .rightSection {
+  float: right;
+  width: 70%;
+  margin-top: 0.5rem;
+} */
