@@ -22,20 +22,29 @@ $(document).ready(function() {
 
 function setTrack(trackId, newPlaylist, play) {
 
-    // $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+    $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
 
-    //     var track = JSON.parse(data);
+        var track = JSON.parse(data);
 
-    //     audioElement.setTrack(track.path);
-    //     audioElement.play();
+        $(".trackName span").text(track.title);
 
-    // });
+        $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+            var artist = JSON.parse(data);
 
-    audioElement.setTrack("music/Metro-Boomin/Calling.mp3");
+            $(".artistName span").text(artist.name);
+        });
 
-    if(play) {
+        $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+            var album = JSON.parse(data);
+
+            $(".albumLink img").attr("src", album.artworkPath);
+        });
+
+        audioElement.setTrack(track.path);
         audioElement.play();
-    }
+
+    });
+
 }   
 
     function playSong() {
