@@ -2,7 +2,7 @@
 
 include("../../config.php");
 
-if(isset($_POST['songId'])) {
+if (isset($_POST['songId'])) {
     $songId = $_POST['songId'];
 
     $query = mysqli_query($con, "SELECT * FROM songs WHERE id='$songId'");
@@ -11,10 +11,6 @@ if(isset($_POST['songId'])) {
 
     echo json_encode($resultArray);
 }
-
-
-
-
 
 
 ?>

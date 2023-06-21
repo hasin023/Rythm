@@ -1,13 +1,13 @@
 <?php
-    $songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
 
-    $resultArray = array();
+$resultArray = array();
 
-    while($row = mysqli_fetch_array($songQuery)) {
-        array_push($resultArray, $row['id']);
-    }
+while ($row = mysqli_fetch_array($songQuery)) {
+    array_push($resultArray, $row['id']);
+}
 
-    $jsonArray = json_encode($resultArray);
+$jsonArray = json_encode($resultArray);
 
 ?>
 
@@ -45,9 +45,16 @@ function setTrack(trackId, newPlaylist, play) {
 
     });
 
+    if (play == true) {
+        audioElement.play();
+    }
+
 }   
 
     function playSong() {
+
+        
+
         $(".btn.play").hide();
         $(".btn.pause").show();
         audioElement.play();
@@ -73,16 +80,16 @@ function setTrack(trackId, newPlaylist, play) {
         <div id = "nowPlayingLeft">
             <div class = "content">
                 <span class = "albumLink">
-                    <img class = "albumArtwork" src = "img/artworks/monaLisaCover.jpg">
+                    <img class = "albumArtwork" src = "">
                 </span>
 
                 <div class = "trackInfo">
                     <span class = "trackName">
-                        <span>Mona Lisa</span>
+                        <span></span>
                     </span>
 
                     <span class = "artistName">
-                        <span>Dominic Fike</span>
+                        <span></span>
                     </span>
                 </div>
             </div>
