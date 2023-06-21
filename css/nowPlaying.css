@@ -169,14 +169,3 @@ ion-icon:active {
   font-size: 0.75rem;
   color: var(--artist-name-color);
 }
-
-.volumeBar {
-  display: flex;
-  align-items: center;
-  width: 11.25rem;
-}
-
-.volumeBar .progressBar {
-  width: 7.8rem;
-  margin-bottom: 0.3rem;
-}

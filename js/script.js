@@ -21,6 +21,11 @@ function updateTimeProgressBar(audio) {
   $(".playBackBar .progress").css("width", progress + "%");
 }
 
+function updateVolumeProgressBar(audio) {
+  let volume = audio.volume * 100;
+  $(".volumeBar .progress").css("width", volume + "%");
+}
+
 function Audio() {
   this.currentlyPlaying;
   this.audio = document.createElement("audio");
@@ -28,12 +33,17 @@ function Audio() {
   this.audio.addEventListener("canplay", function () {
     let duration = formatTime(this.duration);
     $(".progressTime.remaining").text(duration);
+    updateVolumeProgressBar(this);
   });
 
   this.audio.addEventListener("timeupdate", function () {
     if (this.duration) {
       updateTimeProgressBar(this);
     }
+  });
+
+  this.audio.addEventListener("volumechange", function () {
+    updateVolumeProgressBar(this);
   });
 
   this.setTrack = function (track) {
