@@ -40,20 +40,24 @@ function setTrack(trackId, newPlaylist, play) {
             $(".albumLink img").attr("src", album.artworkPath);
         });
 
+        
+        audioElement.currentlyPlaying = track;
         audioElement.setTrack(track.path);
-        audioElement.play();
+        playSong();
 
     });
-
-    if (play == true) {
-        audioElement.play();
-    }
 
 }   
 
     function playSong() {
-
         
+        console.log(audioElement.currentlyPlaying);
+        console.log(audioElement);
+        
+        
+        if(audioElement.audio.currentTime === 0) {
+            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
+        }
 
         $(".btn.play").hide();
         $(".btn.pause").show();
