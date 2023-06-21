@@ -33,7 +33,6 @@ function Audio() {
   this.audio.addEventListener("canplay", function () {
     let duration = formatTime(this.duration);
     $(".progressTime.remaining").text(duration);
-    updateVolumeProgressBar(this);
   });
 
   this.audio.addEventListener("timeupdate", function () {
