@@ -8,45 +8,48 @@ while ($row = mysqli_fetch_array($songQuery)) {
 }
 
 $jsonArray = json_encode($resultArray);
-
 ?>
 
 <script>
 
-currentPlaylist = <?php echo $jsonArray; ?>
-
 $(document).ready(function() {
+    var newPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    setTrack(currentPlaylist[0], currentPlaylist, false);
+    setTrack(newPlaylist[0], newPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
 
-    //Playback Bar
-    $(".playBackBar .progressBar").mousedown(function() {
+
+    $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+        e.preventDefault();
+    });
+
+
+    $(".playbackBar .progressBar").mousedown(function() {
         mouseDown = true;
     });
 
-    $(".playBackBar .progressBar").mousemove(function(e) {
-        if (mouseDown) {
+    $(".playbackBar .progressBar").mousemove(function(e) {
+        if(mouseDown == true) {
+            //Set time of song, depending on position of mouse
             timeFromOffset(e, this);
         }
     });
 
-    $(".playBackBar .progressBar").mouseup(function(e) {
+    $(".playbackBar .progressBar").mouseup(function(e) {
         timeFromOffset(e, this);
     });
 
 
-
-    //Soundbar
     $(".volumeBar .progressBar").mousedown(function() {
         mouseDown = true;
     });
 
     $(".volumeBar .progressBar").mousemove(function(e) {
-        if (mouseDown) {
+        if(mouseDown == true) {
+
             var percentage = e.offsetX / $(this).width();
 
-            if (percentage >= 0 && percentage <= 1) {
+            if(percentage >= 0 && percentage <= 1) {
                 audioElement.audio.volume = percentage;
             }
         }
@@ -55,85 +58,164 @@ $(document).ready(function() {
     $(".volumeBar .progressBar").mouseup(function(e) {
         var percentage = e.offsetX / $(this).width();
 
-        if (percentage >= 0 && percentage <= 1) {
+        if(percentage >= 0 && percentage <= 1) {
             audioElement.audio.volume = percentage;
         }
     });
 
-
-
-    //Mouse Up
     $(document).mouseup(function() {
         mouseDown = false;
     });
 
 
 
-    function timeFromOffset(mouse, progressBar) {
-        var percentage = mouse.offsetX / $(progressBar).width() * 100;
-        var seconds = audioElement.audio.duration * (percentage / 100);
-        audioElement.setTime(seconds);
-    }
-
-
-
-
-
-
 
 });
 
+
+
+function timeFromOffset(mouse, progressBar) {
+    var percentage = mouse.offsetX / $(progressBar).width() * 100;
+    var seconds = audioElement.audio.duration * (percentage / 100);
+    audioElement.setTime(seconds);
+}
+
+
+function prevSong() {
+    if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+        audioElement.setTime(0);
+    }
+    else {
+        currentIndex = currentIndex - 1;
+        setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+    }
+}
+
+
+function nextSong() {
+
+if(repeat == true) {
+    audioElement.setTime(0);
+    playSong();
+    return;
+}
+
+if(currentIndex == currentPlaylist.length - 1) {
+    currentIndex = 0;
+}
+else {
+    currentIndex++;
+}
+
+var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
+setTrack(trackToPlay, currentPlaylist, true);
+}
+
+
+function setRepeat() {
+    repeat = !repeat;
+        var iconColor = repeat ? "#fcc419" : "#c1c1c1";
+        $(".btn.repeat ion-icon").style("color", iconColor);
+}
+
+
+function setMute() {
+    audioElement.audio.muted = !audioElement.audio.muted;
+        var iconColor = audioElement.audio.muted ? "volume-mute-outline" : "volume-high-outline";
+        $(".btn.volume ion-icon").attr("name", iconColor);
+}
+
+
+function setShuffle() {
+    shuffle = !shuffle;
+        var iconColor = shuffle ? "#fcc419" : "#c1c1c1";
+        $(".btn.shuffle ion-icon").style("color", iconColor);
+
+    if(shuffle == true) {
+        //Randomize playlist
+        shuffleArray(shufflePlaylist);
+        currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
+    }
+    else {
+        //shuffle has been deactivated
+        //go back to regular playlist
+        currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
+    }
+
+}
+
+
+function shuffleArray(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+}
+
+
 function setTrack(trackId, newPlaylist, play) {
+
+    if(newPlaylist != currentPlaylist) {
+        currentPlaylist = newPlaylist;
+        shufflePlaylist = currentPlaylist.slice();
+        shuffleArray(shufflePlaylist);
+    }
+
+    if(shuffle == true) {
+        currentIndex = shufflePlaylist.indexOf(trackId);
+    }
+    else {
+        currentIndex = currentPlaylist.indexOf(trackId);
+    }
+    pauseSong();
 
     $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
 
         var track = JSON.parse(data);
-
         $(".trackName span").text(track.title);
 
         $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
             var artist = JSON.parse(data);
-
             $(".artistName span").text(artist.name);
         });
 
         $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
             var album = JSON.parse(data);
-
             $(".albumLink img").attr("src", album.artworkPath);
         });
 
-        
-        audioElement.currentlyPlaying = track;
-        audioElement.setTrack(track.path);
-        playSong();
 
+        audioElement.setTrack(track);
+        playSong();
     });
 
-}   
-
-    function playSong() {
-        
-        if(audioElement.audio.currentTime === 0) {
-            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
-        }
-
-        $(".btn.play").hide();
-        $(".btn.pause").show();
+    if(play == true) {
         audioElement.play();
     }
+}
 
-    function pauseSong() {
-        $(".btn.play").show();
-        $(".btn.pause").hide();
-        audioElement.pause();
+
+function playSong() {
+
+    if(audioElement.audio.currentTime == 0) {
+        $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
     }
 
+    $(".btn.play").hide();
+    $(".btn.pause").show();
+    audioElement.play();
+}
+
+function pauseSong() {
+    $(".btn.play").show();
+    $(".btn.pause").hide();
+    audioElement.pause();
+}
 
 </script>
-
-
-
 
 
 <div id = "nowPlayingBarContainer">
@@ -162,11 +244,11 @@ function setTrack(trackId, newPlaylist, play) {
         <div id = "nowPlayingCenter">
             <div class = "content playerControls">
                 <div class = "buttons">
-                    <button class = "btn shuffle" title = "Shuffle button">
+                    <button class = "btn shuffle" title = "Shuffle button" onclick = "setShuffle()">
                     <ion-icon name="shuffle"></ion-icon>
                     </button>
 
-                    <button class = "btn back" title = "Back button">
+                    <button class = "btn back" title = "Back button" onclick = "prevSong()">
                     <ion-icon name="play-skip-back-sharp"></ion-icon>
                     </button>
 
@@ -178,16 +260,16 @@ function setTrack(trackId, newPlaylist, play) {
                     <ion-icon class = "pause" name="pause-circle"></ion-icon>
                     </button>
 
-                    <button class = "btn forward" title = "Forward button">
+                    <button class = "btn forward" title = "Forward button" onclick = "nextSong()">
                     <ion-icon name="play-skip-forward-sharp"></ion-icon>
                     </button>
 
-                    <button class = "btn repeat" title = "Repeat button">
+                    <button class = "btn repeat" title = "Repeat button" onclick = "setRepeat()">
                     <ion-icon name="repeat"></ion-icon>
                     </button>
                 </div>
 
-                <div class = "playBackBar">
+                <div class = "playbackBar">
                     <span class = "progressTime current">0:00</span>
                     <div class = "progressBar">
                         <div class = "progressBarBg">
@@ -206,16 +288,12 @@ function setTrack(trackId, newPlaylist, play) {
 
         <div id = "nowPlayingRight">
             <div class = "volumeBar">
-                <button class = "btn volume-high" title = "Volume button">
+                <button class = "btn volume" title = "Volume button" onclick = "setMute()">
                 <ion-icon class = "volume-high" name="volume-high-outline"></ion-icon>
                 </button>
 
                 <button class = "btn volume-medium" title = "Medium button" style = "display: none">
                 <ion-icon class = "volume-medium" name="volume-medium-outline"></ion-icon>
-                </button>
-
-                <button class = "btn volume-mute" title = "Mute button" style = "display: none">
-                <ion-icon class = "volume-mute" name="volume-mute-outline"></ion-icon>
                 </button>
 
                 <div class = "progressBar">

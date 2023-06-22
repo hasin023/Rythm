@@ -107,7 +107,7 @@ ion-icon:active {
   color: var(--hover-button-color);
 }
 
-.playBackBar {
+.playbackBar {
   display: flex;
 }
 
@@ -139,7 +139,7 @@ ion-icon:active {
   width: 0%;
 }
 
-.playBackBar .progressBar {
+.playbackBar .progressBar {
   margin-top: 0.3rem;
 }
 
@@ -168,4 +168,18 @@ ion-icon:active {
 #nowPlayingLeft .trackInfo .artistName span {
   font-size: 0.75rem;
   color: var(--artist-name-color);
+}
+
+.volumeBar {
+  width: 12rem;
+  position: absolute;
+  right: 0;
+}
+
+.volume-high {
+  margin-top: 0.5rem;
+}
+
+.volume .volumeBar .progressBar {
+  width: 8rem;
 }
