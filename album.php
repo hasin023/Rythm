@@ -1,15 +1,14 @@
-<?php include("includes/html/header.php"); 
+<?php include("includes/html/header.php");
 
-    if(isset($_GET['id'])) {
-        $albumId = $_GET['id'];
-    }
-    else {
-        header("Location: index.php");
-    }
+if (isset($_GET['id'])) {
+    $albumId = $_GET['id'];
+} else {
+    header("Location: index.php");
+}
 
-    $album = new Album($con, $albumId);
+$album = new Album($con, $albumId);
 
-    $artist = $album->getArtist();
+$artist = $album->getArtist();
 
 ?>
 
@@ -32,30 +31,30 @@
 <div class = "trackListContainer">
     <ul class = "trackList">
 
-    <?php 
+    <?php
 
-        $songIdArray = $album->getSongIds();
+    $songIdArray = $album->getSongIds();
 
-        $i = 1;
-        foreach($songIdArray as $songId){
-            $albumSong = new Song($con, $songId);
-            
-            $albumArtist = $albumSong->getArtist();
+    $i = 1;
+    foreach ($songIdArray as $songId) {
+        $albumSong = new Song($con, $songId);
 
-            echo "<li class = 'trackListRow'>
+        $albumArtist = $albumSong->getArtist();
+
+        echo "<li class = 'trackListRow'>
                     <div class = 'trackCount'>
-                        <ion-icon class = 'play' name='play'></ion-icon>
+                        <ion-icon class = 'play' name='play' onclick = 'setTrack(" . $albumSong->getSongId() . ", tempPlaylist, true)'></ion-icon>
                         <span class = 'trackNumber'>$i</span>
                     </div>
 
 
                     <div class = 'trackInfo'>
-                        <span class = 'trackName'>" . $albumSong->getTitle() .  "</span>
-                        <span class = 'artistName'>" . $albumArtist->getName() .  "</span>
+                        <span class = 'trackName'>" . $albumSong->getTitle() . "</span>
+                        <span class = 'artistName'>" . $albumArtist->getName() . "</span>
                     </div>
 
                     <div class = 'trackDuration'>
-                    <span class = 'duration'>" . $albumSong->getDuration() .  "</span>
+                    <span class = 'duration'>" . $albumSong->getDuration() . "</span>
                     </div>
 
                     <div class = 'trackOptions'>
@@ -64,12 +63,16 @@
 
                 </li>";
 
-            $i = $i + 1;
+        $i = $i + 1;
 
-        }
-
+    }
 
     ?>
+
+    <script>
+        let tempSongIds = "<?php echo json_encode($songIdArray); ?>";
+        tempPlaylist = JSON.parse(tempSongIds);
+    </script>
 
     </ul>
 </div>
