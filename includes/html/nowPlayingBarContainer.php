@@ -115,30 +115,27 @@ setTrack(trackToPlay, currentPlaylist, true);
 function setRepeat() {
     repeat = !repeat;
         var iconColor = repeat ? "#fcc419" : "#c1c1c1";
-        $(".btn.repeat ion-icon").style("color", iconColor);
+        $(".controlButton.repeat ion-icon").style("color", iconColor);
 }
 
 
 function setMute() {
     audioElement.audio.muted = !audioElement.audio.muted;
         var iconColor = audioElement.audio.muted ? "volume-mute-outline" : "volume-high-outline";
-        $(".btn.volume ion-icon").attr("name", iconColor);
+        $(".controlButton.volume ion-icon").attr("name", iconColor);
 }
 
 
 function setShuffle() {
     shuffle = !shuffle;
         var iconColor = shuffle ? "#fcc419" : "#c1c1c1";
-        $(".btn.shuffle ion-icon").style("color", iconColor);
+        $(".controlButton.shuffle ion-icon").style("color", iconColor);
 
     if(shuffle == true) {
-        //Randomize playlist
         shuffleArray(shufflePlaylist);
         currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
     }
     else {
-        //shuffle has been deactivated
-        //go back to regular playlist
         currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
     }
 
@@ -204,111 +201,122 @@ function playSong() {
         $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
     }
 
-    $(".btn.play").hide();
-    $(".btn.pause").show();
+    $(".controlButton.play").hide();
+    $(".controlButton.pause").show();
     audioElement.play();
 }
 
 function pauseSong() {
-    $(".btn.play").show();
-    $(".btn.pause").hide();
+    $(".controlButton.play").show();
+    $(".controlButton.pause").hide();
     audioElement.pause();
 }
 
 </script>
 
 
-<div id = "nowPlayingBarContainer">
+<div id="nowPlayingBarContainer">
 
-    <div id = "nowPlayingBar">
+    <div id="nowPlayingBar">
 
-        <div id = "nowPlayingLeft">
-            <div class = "content">
-                <span class = "albumLink">
-                    <img class = "albumArtwork" src = "">
+        <div id="nowPlayingLeft">
+            <div class="content">
+                <span class="albumLink">
+                    <img src="" class="albumArtwork">
                 </span>
 
-                <div class = "trackInfo">
-                    <span class = "trackName">
+                <div class="trackInfo">
+
+                    <span class="trackName">
                         <span></span>
                     </span>
 
-                    <span class = "artistName">
+                    <span class="artistName">
                         <span></span>
                     </span>
-                </div>
-            </div>
 
+                </div>
+
+
+
+            </div>
         </div>
 
-        <div id = "nowPlayingCenter">
-            <div class = "content playerControls">
-                <div class = "buttons">
-                    <button class = "btn shuffle" title = "Shuffle button" onclick = "setShuffle()">
-                    <ion-icon name="shuffle"></ion-icon>
+        <div id="nowPlayingCenter">
+
+            <div class="content playerControls">
+
+                <div class="buttons">
+
+                    <button class="controlButton shuffle" title="Shuffle button" onclick="setShuffle()">
+                        <ion-icon name="shuffle"></ion-icon>
                     </button>
 
-                    <button class = "btn back" title = "Back button" onclick = "prevSong()">
-                    <ion-icon name="play-skip-back-sharp"></ion-icon>
+                    <button class="controlButton previous" title="Previous button" onclick="prevSong()">
+                        <ion-icon name="play-skip-back-sharp"></ion-icon>
                     </button>
 
-                    <button class = "btn play" title = "Play button" onclick = "playSong()">
-                    <ion-icon class = "play" name="play-circle-sharp"></ion-icon>
+                    <button class="controlButton play" title="Play button" onclick="playSong()">
+                        <ion-icon class = "play" name="play-circle-sharp"></ion-icon>
                     </button>
 
-                    <button class = "btn pause" title = "Pause button" style = "display: none" onclick = "pauseSong()">
-                    <ion-icon class = "pause" name="pause-circle"></ion-icon>
+                    <button class="controlButton pause" title="Pause button" style="display: none;" onclick="pauseSong()">
+                        <ion-icon class = "pause" name="pause-circle"></ion-icon>
                     </button>
 
-                    <button class = "btn forward" title = "Forward button" onclick = "nextSong()">
-                    <ion-icon name="play-skip-forward-sharp"></ion-icon>
+                    <button class="controlButton next" title="Next button" onclick="nextSong()">
+                        <ion-icon name="play-skip-forward-sharp"></ion-icon>
                     </button>
 
-                    <button class = "btn repeat" title = "Repeat button" onclick = "setRepeat()">
-                    <ion-icon name="repeat"></ion-icon>
+                    <button class="controlButton repeat" title="Repeat button" onclick="setRepeat()">
+                        <ion-icon name="repeat"></ion-icon>
                     </button>
+
                 </div>
 
-                <div class = "playbackBar">
-                    <span class = "progressTime current">0:00</span>
-                    <div class = "progressBar">
-                        <div class = "progressBarBg">
-                            <div class = "progress">
 
-                            </div>
+                <div class="playbackBar">
+
+                    <span class="progressTime current">0.00</span>
+
+                    <div class="progressBar">
+                        <div class="progressBarBg">
+                            <div class="progress"></div>
                         </div>
                     </div>
-                    <span class = "progressTime remaining">0:00</span>
+
+                    <span class="progressTime remaining">0.00</span>
+
 
                 </div>
 
+
             </div>
+
 
         </div>
 
-        <div id = "nowPlayingRight">
-            <div class = "volumeBar">
-                <button class = "btn volume" title = "Volume button" onclick = "setMute()">
-                <ion-icon class = "volume-high" name="volume-high-outline"></ion-icon>
+        <div id="nowPlayingRight">
+            <div class="volumeBar">
+
+                <button class="controlButton volume" title="Volume button" onclick="setMute()">
+                    <ion-icon class = "volume" name="volume-high-outline"></ion-icon>
                 </button>
 
-                <button class = "btn volume-medium" title = "Medium button" style = "display: none">
-                <ion-icon class = "volume-medium" name="volume-medium-outline"></ion-icon>
-                </button>
-
-                <div class = "progressBar">
-                        <div class = "progressBarBg">
-                            <div class = "progress">
-
-                            </div>
-                        </div>
+                <div class="progressBar">
+                    <div class="progressBarBg">
+                        <div class="progress"></div>
                     </div>
-            </div>
+                </div>
 
+            </div>
         </div>
+
 
 
 
     </div>
 
 </div>
+
+

@@ -23,32 +23,25 @@ font-family: 'Poppins', sans-serif; */
   width: 100%;
   min-width: 40rem;
   background-color: var(--nowPlaying-bar-bg);
-  z-index: 1000;
   border-top: 1px solid var(--nowPlaying-BorderTop);
 }
 
 #nowPlayingBar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 5.3rem;
-  margin: 0 auto;
   padding: 1rem;
   box-sizing: border-box;
 }
 
-#nowPlayingLeft {
+#nowPlayingLeft,
+#nowPlayingRight {
   width: 30%;
-  min-width: 11rem;
-  position: relative;
-  margin-top: 1rem;
+  min-width: 180px;
 }
 
 #nowPlayingRight {
-  margin-left: auto;
-  min-width: 11rem;
   position: relative;
-  margin-top: 1rem;
+  margin-top: 16px;
 }
 
 #nowPlayingCenter {
@@ -69,7 +62,7 @@ font-family: 'Poppins', sans-serif; */
   display: table;
 }
 
-.btn {
+.controlButton {
   background: transparent;
   border: none;
   outline: none;
@@ -77,23 +70,23 @@ font-family: 'Poppins', sans-serif; */
   cursor: pointer;
 }
 
-.btn .play {
+.controlButton .play {
   font-size: 2.5rem;
   color: var(--hover-button-color);
   transition: transform 0.3s ease;
 }
 
-.btn:hover .play {
+.controlButton:hover .play {
   transform: scale(1.1);
 }
 
-.btn .pause {
+.controlButton .pause {
   font-size: 2.5rem;
   color: var(--hover-button-color);
   transition: transform 0.3s ease;
 }
 
-.btn:hover .pause {
+.controlButton:hover .pause {
   transform: scale(1.1);
 }
 
@@ -126,7 +119,7 @@ ion-icon:active {
 }
 
 .progressBarBg {
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--progressbar-bg);
   width: 100%;
   height: 0.3rem;
@@ -134,9 +127,9 @@ ion-icon:active {
 
 .progress {
   background-color: var(--progress-time-color);
-  border-radius: 20px;
+  border-radius: 10px;
   height: 0.3rem;
-  width: 0%;
+  width: 0;
 }
 
 .playbackBar .progressBar {
@@ -176,10 +169,10 @@ ion-icon:active {
   right: 0;
 }
 
-.volume-high {
+/* .volume-high {
   margin-top: 0.5rem;
-}
+} */
 
-.volume .volumeBar .progressBar {
+.volumeBar .progressBar {
   width: 8rem;
 }
