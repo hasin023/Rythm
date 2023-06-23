@@ -12,6 +12,7 @@ $jsonArray = json_encode($resultArray);
 
 <script>
 
+
 $(document).ready(function() {
     var newPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
@@ -30,7 +31,6 @@ $(document).ready(function() {
 
     $(".playbackBar .progressBar").mousemove(function(e) {
         if(mouseDown == true) {
-            //Set time of song, depending on position of mouse
             timeFromOffset(e, this);
         }
     });
@@ -115,7 +115,7 @@ setTrack(trackToPlay, currentPlaylist, true);
 function setRepeat() {
     repeat = !repeat;
         var iconColor = repeat ? "#fcc419" : "#c1c1c1";
-        $(".controlButton.repeat ion-icon").style("color", iconColor);
+        $(".controlButton.repeat ion-icon").css("color", iconColor);
 }
 
 
@@ -129,7 +129,7 @@ function setMute() {
 function setShuffle() {
     shuffle = !shuffle;
         var iconColor = shuffle ? "#fcc419" : "#c1c1c1";
-        $(".controlButton.shuffle ion-icon").style("color", iconColor);
+        $(".controlButton.shuffle ion-icon").css("color", iconColor);
 
     if(shuffle == true) {
         shuffleArray(shufflePlaylist);
@@ -184,8 +184,9 @@ function setTrack(trackId, newPlaylist, play) {
             $(".albumLink img").attr("src", album.artworkPath);
         });
 
-
-        audioElement.setTrack(track);
+        //The JS file has no function to set the id to the currentlyPlaying, so it is done manually here.
+        audioElement.setTrack(track.path);
+        audioElement.currentlyPlaying = track;
         playSong();
     });
 
@@ -300,7 +301,7 @@ function pauseSong() {
             <div class="volumeBar">
 
                 <button class="controlButton volume" title="Volume button" onclick="setMute()">
-                    <ion-icon class = "volume" name="volume-high-outline"></ion-icon>
+                    <ion-icon class = "volumeIcon" name="volume-high-outline"></ion-icon>
                 </button>
 
                 <div class="progressBar">

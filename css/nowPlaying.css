@@ -169,9 +169,9 @@ ion-icon:active {
   right: 0;
 }
 
-/* .volume-high {
+.volumeBar .volume {
   margin-top: 0.5rem;
-} */
+}
 
 .volumeBar .progressBar {
   width: 8rem;
