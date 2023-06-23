@@ -9,11 +9,11 @@ let shuffle = false;
 function formatTime(seconds) {
   let time = Math.round(seconds);
   let minutes = Math.floor(time / 60);
-  let seconds = time - minutes * 60;
+  let second = time - minutes * 60;
 
-  let extraZero = seconds < 10 ? "0" : "";
+  let extraZero = second < 10 ? "0" : "";
 
-  return minutes + ":" + extraZero + seconds;
+  return minutes + ":" + extraZero + second;
 }
 
 function updateTimeProgressBar(audio) {

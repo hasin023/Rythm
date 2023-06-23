@@ -43,7 +43,7 @@ $artist = $album->getArtist();
 
         echo "<li class = 'trackListRow'>
                     <div class = 'trackCount'>
-                        <ion-icon class = 'play' name='play' onclick = 'setTrack(" . $albumSong->getSongId() . ", tempPlaylist, true)'></ion-icon>
+                        <ion-icon class = 'play' name='play' onclick = 'setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'></ion-icon>
                         <span class = 'trackNumber'>$i</span>
                     </div>
 
@@ -70,8 +70,9 @@ $artist = $album->getArtist();
     ?>
 
     <script>
-        let tempSongIds = "<?php echo json_encode($songIdArray); ?>";
+        let tempSongIds = '<?php echo json_encode($songIdArray); ?>';
         tempPlaylist = JSON.parse(tempSongIds);
+        
     </script>
 
     </ul>
