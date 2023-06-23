@@ -14,7 +14,7 @@ $jsonArray = json_encode($resultArray);
 
 
 $(document).ready(function() {
-    var newPlaylist = <?php echo $jsonArray; ?>;
+    let newPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
     setTrack(newPlaylist[0], newPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);

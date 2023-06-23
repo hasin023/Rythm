@@ -8,10 +8,11 @@ let shuffle = false;
 function formatTime(seconds) {
   let time = Math.round(seconds);
   let minutes = Math.floor(time / 60);
-  let secondsLeft = time - minutes * 60;
-  let extraZero = secondsLeft < 10 ? "0" : "";
+  let seconds = time - minutes * 60;
 
-  return minutes + ":" + extraZero + secondsLeft;
+  let extraZero = seconds < 10 ? "0" : "";
+
+  return minutes + ":" + extraZero + seconds;
 }
 
 function updateTimeProgressBar(audio) {
@@ -21,7 +22,7 @@ function updateTimeProgressBar(audio) {
   );
 
   let progress = (audio.currentTime / audio.duration) * 100;
-  $(".playBackBar .progress").css("width", progress + "%");
+  $(".playbackBar .progress").css("width", progress + "%");
 }
 
 function updateVolumeProgressBar(audio) {

@@ -119,7 +119,7 @@ ion-icon:active {
 }
 
 .progressBarBg {
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: var(--progressbar-bg);
   width: 100%;
   height: 0.3rem;
@@ -127,9 +127,9 @@ ion-icon:active {
 
 .progress {
   background-color: var(--progress-time-color);
-  border-radius: 10px;
+  border-radius: 20px;
   height: 0.3rem;
-  width: 0;
+  width: 0%;
 }
 
 .playbackBar .progressBar {
