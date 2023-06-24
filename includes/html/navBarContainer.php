@@ -1,35 +1,35 @@
 <div id = "navBarContainer">
     <nav class = "navBar">
-        <span class = "logo" role = "link" tabindex = "0" onclick = "openPage('index.php')">
+        <span role = "link" tabindex = "0" onclick = "openPage('index.php')" class = "logo">
             <img class = "logoImg" src = "img/logo.png">
         </span>
 
         <div class = "group">
             <div class = "navItem">
-                <a href = "search.php" class = "navItemLink">
+                <span role = "link" tabindex = "0" onclick = "openPage('search.php')" class = "navItemLink">
                 <ion-icon class = "navIcon" name="search-outline"></ion-icon>       
-                Search</a>
+                Search</span>
             </div>
 
         </div>
 
         <div class = "group">
             <div class = "navItem">
-                <a href = "browse.php" class = "navItemLink">
+                <span role = "link" tabindex = "0" onclick = "openPage('browse.php')" class = "navItemLink">
                 <ion-icon class = "navIcon" name="home-outline"></ion-icon>    
-                Browse</a>
+                Browse</span>
             </div>
 
             <div class = "navItem">
-                <a href = "yourMusic.php" class = "navItemLink">
+                <span role = "link" tabindex = "0" onclick = "openPage('yourMusic.php')" class = "navItemLink">
                 <ion-icon class = "navIcon" name="musical-notes-outline"></ion-icon>    
-                Your Music</a>
+                Your Music</span>
             </div>
 
             <div class = "navItem">
-                <a href = "profile.php" class = "navItemLink">
+                <span role = "link" tabindex = "0" onclick = "openPage('profile.php')" class = "navItemLink">
                 <ion-icon class = "navIcon" name="person-outline"></ion-icon>    
-                Profile</a>
+                Profile</span>
             </div>
 
         </div>

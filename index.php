@@ -13,7 +13,7 @@ include("includes/includedFiles.php");
 
     while ($row = mysqli_fetch_array($albumQuery)) {
 
-        echo "<a class = 'cardLink' href='album.php?id=" . $row['id'] . "'> 
+        echo "<span class = 'cardLink' role = 'link' tabindex = '0' onclick = 'openPage(\"album.php?id=" . $row['id'] . "\")'> 
                     <div class='card'>" .
             "<div class='gridViewItem'>
                             <img src='" . $row['artworkPath'] . "'>
@@ -23,7 +23,7 @@ include("includes/includedFiles.php");
             "</div>
                         </div>
                     </div>
-                </a>";
+                </span>";
     }
 
     ?>

@@ -187,13 +187,14 @@ function setTrack(trackId, newPlaylist, play) {
         //The JS file has no function to set the id to the currentlyPlaying, so it is done manually here.
         audioElement.setTrack(track.path);
         audioElement.currentlyPlaying = track;
+
+        if(play == true) {
+            playSong();
+        }
         //The Autoplay
         //playSong();
     });
 
-    if(play == true) {
-        audioElement.play();
-    }
 }
 
 
