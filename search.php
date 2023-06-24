@@ -12,7 +12,7 @@ if (isset($_GET['term'])) {
 
 
 <div class="searchContainer">
-    <h3>Search for an artist, album or song</h3>
+    <h3>Search for a Song, Artist or Album</h3>
     <input type="text" class="searchInput" spellcheck="false" value="<?php echo $term; ?>" placeholder="What are you looking for?">
 </div>
 
@@ -20,8 +20,8 @@ if (isset($_GET['term'])) {
 
     $(function() {
         //$(".searchInput").focus();
-        
-        let timer;
+
+        timer = null;
 
         $(".searchInput").keyup(function() {
             clearTimeout(timer);
@@ -38,8 +38,14 @@ if (isset($_GET['term'])) {
 
 </script>
 
+<?php if ($term == "")
 
-<div class = "trackListContainer borderBottom">
+    exit();
+
+?>
+
+
+<div class = "searchTrackListContainer searchBorderBottom">
     <h1  class="sectionHeading">Songs</h1>
 
     <ul class = "trackList">
@@ -49,7 +55,7 @@ if (isset($_GET['term'])) {
     $songsQuery = mysqli_query($con, "SELECT id FROM songs WHERE title LIKE '$term%' LIMIT 10");
 
     if (mysqli_num_rows($songsQuery) == 0) {
-        echo "<span class = 'noResults'>No songs found matching " . $term . "</span>";
+        echo "<span class = 'noResults'>No songs found matching \"" . $term . "\"</span>";
     }
 
     $songIdArray = array();
@@ -104,7 +110,7 @@ if (isset($_GET['term'])) {
 </div>
 
 
-<div class = "artistsContainer borderBottom">
+<div class = "artistsContainer searchBorderBottom">
     <h1  class="sectionHeading">Artists</h1>
 
     <?php
@@ -112,7 +118,7 @@ if (isset($_GET['term'])) {
     $artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
 
     if (mysqli_num_rows($artistsQuery) == 0) {
-        echo "<span class = 'noResults'>No artists found matching " . $term . "</span>";
+        echo "<span class = 'noResults'>No artists found matching \"" . $term . "\"</span>";
     }
 
     while ($row = mysqli_fetch_array($artistsQuery)) {
@@ -129,6 +135,37 @@ if (isset($_GET['term'])) {
                 </div>
             </div>";
 
+    }
+
+    ?>
+
+</div>
+
+
+<div class = "gridViewContainer">
+<h1  class="sectionHeading">Albums</h1>
+
+    <?php
+
+    $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE title LIKE '$term%' LIMIT 10");
+
+    if (mysqli_num_rows($albumQuery) == 0) {
+        echo "<span class = 'noResults'>No albums found matching \"" . $term . "\"</span>";
+    }
+
+    while ($row = mysqli_fetch_array($albumQuery)) {
+
+        echo "<span class = 'cardLink' role = 'link' tabindex = '0' onclick = 'openPage(\"album.php?id=" . $row['id'] . "\")'> 
+                    <div class='card'>" .
+            "<div class='gridViewItem'>
+                            <img src='" . $row['artworkPath'] . "'>
+
+                            <div class='gridViewInfo'>"
+            . $row['title'] .
+            "</div>
+                        </div>
+                    </div>
+                </span>";
     }
 
     ?>
