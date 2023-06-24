@@ -3,13 +3,13 @@ include("includes/includedFiles.php");
 ?>
 
 
-<h1  class="pageHeadingBig">Browse Page</h1>
+<h1  class="pageHeadingBig">Browse All</h1>
 
 <div class = "gridViewContainer">
 
     <?php
 
-    $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
+    $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND()");
 
     while ($row = mysqli_fetch_array($albumQuery)) {
 
