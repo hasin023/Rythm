@@ -39,3 +39,7 @@ font-family: 'Poppins', sans-serif; */
   font-weight: 300;
   margin-bottom: 1rem;
 }
+
+[role="link"] {
+  cursor: pointer;
+}
