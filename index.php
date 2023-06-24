@@ -1,4 +1,6 @@
-<?php include("includes/html/header.php"); ?>
+<?php
+include("includes/includedFiles.php");
+?>
 
 
 <h1  class="pageHeadingBig">You Might Also Like</h1>
@@ -7,27 +9,23 @@
 
     <?php
 
-        $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
+    $albumQuery = mysqli_query($con, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
 
-        while($row = mysqli_fetch_array($albumQuery)) {
+    while ($row = mysqli_fetch_array($albumQuery)) {
 
-            echo "<a class = 'cardLink' href='album.php?id=" . $row['id'] . "'> 
+        echo "<a class = 'cardLink' href='album.php?id=" . $row['id'] . "'> 
                     <div class='card'>" .
-                        "<div class='gridViewItem'>
+            "<div class='gridViewItem'>
                             <img src='" . $row['artworkPath'] . "'>
 
                             <div class='gridViewInfo'>"
-                                . $row['title'] .
-                            "</div>
+            . $row['title'] .
+            "</div>
                         </div>
                     </div>
                 </a>";
-        }
+    }
 
     ?>
 
 </div>
-
-
-
-<?php include("includes/html/footer.php"); ?>

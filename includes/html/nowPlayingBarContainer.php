@@ -187,7 +187,8 @@ function setTrack(trackId, newPlaylist, play) {
         //The JS file has no function to set the id to the currentlyPlaying, so it is done manually here.
         audioElement.setTrack(track.path);
         audioElement.currentlyPlaying = track;
-        playSong();
+        //The Autoplay
+        //playSong();
     });
 
     if(play == true) {
@@ -249,27 +250,27 @@ function pauseSong() {
 
                 <div class="buttons">
 
-                    <button class="controlButton shuffle" title="Shuffle button" onclick="setShuffle()">
+                    <button class="controlButton shuffle" title="Shuffle" onclick="setShuffle()">
                         <ion-icon name="shuffle"></ion-icon>
                     </button>
 
-                    <button class="controlButton previous" title="Previous button" onclick="prevSong()">
+                    <button class="controlButton previous" title="Previous" onclick="prevSong()">
                         <ion-icon name="play-skip-back-sharp"></ion-icon>
                     </button>
 
-                    <button class="controlButton play" title="Play button" onclick="playSong()">
+                    <button class="controlButton play" title="Play" onclick="playSong()">
                         <ion-icon class = "play" name="play-circle-sharp"></ion-icon>
                     </button>
 
-                    <button class="controlButton pause" title="Pause button" style="display: none;" onclick="pauseSong()">
+                    <button class="controlButton pause" title="Pause" style="display: none;" onclick="pauseSong()">
                         <ion-icon class = "pause" name="pause-circle"></ion-icon>
                     </button>
 
-                    <button class="controlButton next" title="Next button" onclick="nextSong()">
+                    <button class="controlButton next" title="Next" onclick="nextSong()">
                         <ion-icon name="play-skip-forward-sharp"></ion-icon>
                     </button>
 
-                    <button class="controlButton repeat" title="Repeat button" onclick="setRepeat()">
+                    <button class="controlButton repeat" title="Repeat" onclick="setRepeat()">
                         <ion-icon name="repeat"></ion-icon>
                     </button>
 

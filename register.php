@@ -8,8 +8,9 @@ include("includes/handlers/register-handler.php");
 include("includes/handlers/login-handler.php");
 
 
-function getInput($name){
-    if(isset($_POST[$name])){
+function getInput($name)
+{
+    if (isset($_POST[$name])) {
         echo $_POST[$name];
     }
 }
@@ -40,23 +41,23 @@ function getInput($name){
 </head>
 <body>
 
-<?php 
+<?php
 
-    if(isset($_POST['registerButton'])){
-        echo '<script>
+if (isset($_POST['registerButton'])) {
+    echo '<script>
                 $(document).ready(function () {
                     $("#loginForm").hide();
                     $("#registrationForm").show();
                 });
             </script>';
-    } else {
-        echo '<script>
+} else {
+    echo '<script>
                 $(document).ready(function () {
                     $("#loginForm").show();
                     $("#registrationForm").hide();
                 });
             </script>';
-    }
+}
 ?>
 
     <div class= "backgroundImg">
@@ -176,7 +177,7 @@ function getInput($name){
         </div>
 
         <div id = "loginText">
-                    <h1>Get great Music, Anywhere</h1>
+                    <h1>Great Music, Anywhere</h1>
                     <h2>Listen to your favourite tunes for Free</h2>
                     <ul>
                         <li>Music you'll fall in love with</li>

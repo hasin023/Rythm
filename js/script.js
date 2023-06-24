@@ -5,6 +5,15 @@ let mouseDown = false;
 let currentIndex = 0;
 let repeat = false;
 let shuffle = false;
+let userLoggedIn;
+
+function openPage(url) {
+  if (url.indexOf("?") == -1) {
+    url = url + "?";
+  }
+  let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+  $("#mainContent").load(encodedUrl);
+}
 
 function formatTime(seconds) {
   let time = Math.round(seconds);
