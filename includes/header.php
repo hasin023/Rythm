@@ -29,6 +29,7 @@ if (isset($_SESSION['userLoggedIn'])) {
     <link rel="stylesheet" href = "css/index.css">
     <link rel="stylesheet" href = "css/nowPlaying.css">
     <link rel="stylesheet" href = "css/album.css">
+    <link rel="stylesheet" href = "css/artist.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
