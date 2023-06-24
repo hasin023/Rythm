@@ -33,3 +33,9 @@ font-family: 'Poppins', sans-serif; */
   border-bottom: 1px solid #fff;
   margin-bottom: 2rem;
 }
+
+.sectionHeading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}

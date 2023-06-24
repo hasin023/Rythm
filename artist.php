@@ -30,6 +30,7 @@ $artist = new Artist($con, $artistId);
 
 
 <div class = "trackListContainer borderBottom">
+<h1  class="sectionHeading">Songs</h1>
     <ul class = "trackList">
 
     <?php
@@ -81,4 +82,31 @@ $artist = new Artist($con, $artistId);
     </script>
 
     </ul>
+</div>
+
+
+<div class = "gridViewContainer">
+<h1  class="sectionHeading">Albums</h1>
+
+    <?php
+
+    $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist = '$artistId'");
+
+    while ($row = mysqli_fetch_array($albumQuery)) {
+
+        echo "<span class = 'cardLink' role = 'link' tabindex = '0' onclick = 'openPage(\"album.php?id=" . $row['id'] . "\")'> 
+                    <div class='card'>" .
+            "<div class='gridViewItem'>
+                            <img src='" . $row['artworkPath'] . "'>
+
+                            <div class='gridViewInfo'>"
+            . $row['title'] .
+            "</div>
+                        </div>
+                    </div>
+                </span>";
+    }
+
+    ?>
+
 </div>
