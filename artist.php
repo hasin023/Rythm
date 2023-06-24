@@ -30,7 +30,8 @@ $artist = new Artist($con, $artistId);
 
 
 <div class = "trackListContainer borderBottom">
-<h1  class="sectionHeading">Songs</h1>
+    <h1  class="sectionHeading">Songs</h1>
+    
     <ul class = "trackList">
 
     <?php

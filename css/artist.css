@@ -76,3 +76,14 @@ font-family: 'Poppins', sans-serif; */
 .searchContainer .searchInput:focus {
   border-bottom: 1.5px solid #fff;
 }
+
+.searchResultRow {
+  padding: 1rem;
+}
+
+.searchResultRow .artistName {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
