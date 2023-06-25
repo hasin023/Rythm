@@ -29,6 +29,10 @@ font-family: 'Poppins', sans-serif; */
   color: #000;
 }
 
+.buttonItems .button {
+  width: 15rem;
+}
+
 .borderBottom {
   border-bottom: 1px solid #fff;
   margin-bottom: 2rem;
@@ -122,4 +126,10 @@ font-family: 'Poppins', sans-serif; */
   font-weight: 300;
   font-size: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.playlistContainer {
+  background-color: #1d1d1d;
+  padding: 1rem;
+  border-radius: 10px;
 }
