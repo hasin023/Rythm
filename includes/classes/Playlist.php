@@ -31,6 +31,11 @@ class Playlist
         return $this->name;
     }
 
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
 }
 
 ?>
