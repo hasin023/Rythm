@@ -6,7 +6,7 @@ let mouseDown = false;
 let currentIndex = 0;
 let repeat = false;
 let shuffle = false;
-let userLoggedIn;
+//let userLoggedIn;
 let timer;
 
 function openPage(url) {
