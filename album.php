@@ -78,3 +78,9 @@ $artist = $album->getArtist();
     </ul>
 </div>
 
+<nav class="optionsMenu">
+    <input type = "hidden" class = "songId">
+    <div class="item">Add to Playlist</div>
+    <div class="item">Copy song Link</div>
+</nav>
+
