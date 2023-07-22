@@ -33,6 +33,32 @@ font-family: 'Poppins', sans-serif; */
   width: 15rem;
 }
 
+.buttonDelete {
+  color: #fff;
+  background-color: transparent;
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+  border: 2px solid #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  width: 10rem;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.buttonDelete:hover {
+  border: none;
+  background-color: #e84c4c;
+  border: 2px solid #e84c4c;
+  color: #000;
+}
+
+.buttonItems .buttonDelete {
+  width: 15rem;
+}
+
 .borderBottom {
   border-bottom: 1px solid #fff;
   margin-bottom: 2rem;
