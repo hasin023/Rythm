@@ -109,6 +109,10 @@ font-family: 'Poppins', sans-serif; */
   border-bottom: 1.5px solid #fff;
 }
 
+.trackListContainer {
+  padding: 2rem 0.5rem;
+}
+
 .searchTrackListContainer {
   background-color: #1d1d1d;
   padding: 1rem;
@@ -180,10 +184,20 @@ font-family: 'Poppins', sans-serif; */
   font-weight: 300;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  background-color: #282828;
 }
 
 .optionsMenu .item:hover {
   color: #fff;
   background-color: #333;
   border-color: #333;
+}
+
+.optionsMenu select {
+  text-indent: 1rem;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
