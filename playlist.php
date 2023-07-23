@@ -60,7 +60,8 @@ $owner = new User($con, $playlist->getOwner());
                     </div>
 
                     <div class = 'trackOptions'>
-                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal'></ion-icon>
+                        <input type = 'hidden' class = 'songId' value = '" . $playlistSong->getId() . "'>
+                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal' onclick='showOptionsMenu(this)'></ion-icon>
                     </div>
 
                 </li>";
@@ -79,4 +80,11 @@ $owner = new User($con, $playlist->getOwner());
 
     </ul>
 </div>
+
+<nav class="optionsMenu">
+    <input type = "hidden" class = "songId">
+    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+    <div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlistId; ?>')">Remove from Playlist</div>
+    <div class="item">Copy song Link</div>
+</nav>
 

@@ -89,7 +89,8 @@ if (isset($_GET['term'])) {
                     </div>
 
                     <div class = 'trackOptions'>
-                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal'></ion-icon>
+                        <input type = 'hidden' class = 'songId' value = '" . $albumSong->getId() . "'>
+                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal' onclick='showOptionsMenu(this)'></ion-icon>
                     </div>
 
                 </li>";
@@ -171,3 +172,9 @@ if (isset($_GET['term'])) {
     ?>
 
 </div>
+
+<nav class="optionsMenu">
+    <input type = "hidden" class = "songId">
+    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+    <div class="item">Copy song Link</div>
+</nav>
