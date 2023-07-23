@@ -167,6 +167,7 @@ font-family: 'Poppins', sans-serif; */
   border: 1px solid rgba(#000, 0.15);
   width: 12rem;
   z-index: 1000;
+  display: none;
 }
 
 .item {

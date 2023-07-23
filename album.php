@@ -58,7 +58,7 @@ $artist = $album->getArtist();
                     </div>
 
                     <div class = 'trackOptions'>
-                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal'></ion-icon>
+                        <ion-icon class = 'optionsButton' name='ellipsis-horizontal' onclick='showOptionsMenu(this)'></ion-icon>
                     </div>
 
                 </li>";
