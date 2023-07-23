@@ -80,7 +80,7 @@ $artist = $album->getArtist();
 
 <nav class="optionsMenu">
     <input type = "hidden" class = "songId">
-    <div class="item">Add to Playlist</div>
+    <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
     <div class="item">Copy song Link</div>
 </nav>
 
