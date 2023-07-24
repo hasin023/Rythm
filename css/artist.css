@@ -29,6 +29,14 @@ font-family: 'Poppins', sans-serif; */
   color: #000;
 }
 
+.buttonItems {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
 .buttonItems .button {
   width: 15rem;
 }
@@ -200,4 +208,9 @@ font-family: 'Poppins', sans-serif; */
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: "";
+}
+
+.centerSection {
+  padding-top: 4rem;
+  text-align: center;
 }
