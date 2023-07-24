@@ -29,7 +29,7 @@
             <div class = "navItem">
                 <span role = "link" tabindex = "0" onclick = "openPage('settings.php')" class = "navItemLink">
                 <ion-icon class = "navIcon" name="person-outline"></ion-icon>    
-                Profile</span>
+                <?php echo $userLoggedIn->getUsername(); ?> </span>
             </div>
 
         </div>
