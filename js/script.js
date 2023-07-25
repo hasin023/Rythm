@@ -45,6 +45,19 @@ function logout() {
   });
 }
 
+function updateEmail(emailClass) {
+  let emailValue = $("." + emailClass).val();
+
+  $.post("includes/handlers/ajax/updateEmail.php", {
+    email: emailValue,
+    username: userLoggedIn,
+  }).done(function (response) {
+    $("." + emailClass)
+      .nextAll(".message")
+      .text(response);
+  });
+}
+
 function openPage(url) {
   if (timer != null) {
     clearTimeout(timer);
