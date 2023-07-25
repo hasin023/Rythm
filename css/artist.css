@@ -240,3 +240,39 @@ font-family: 'Poppins', sans-serif; */
   padding-top: 4rem;
   text-align: center;
 }
+
+.userDetails {
+  padding: 2rem;
+}
+
+.userDetails .container h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .buttonSave {
+  display: block;
+  margin: 1rem auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"] {
+  height: 3rem;
+  width: 100%;
+  background-color: #1f1f1f;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 1rem;
+}
+
+.userDetails .container .message {
+  color: #2ebd59;
+  font-size: 0.9rem;
+}
